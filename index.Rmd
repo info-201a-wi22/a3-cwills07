@@ -21,7 +21,8 @@ summary(cars)
 
 You can also embed plots, for example:
 
-```{r echo = FALSE`}
+
+```{r prison_pop_trend 'echo = FALSE'}
 prison_pop_trend
 ```
 
