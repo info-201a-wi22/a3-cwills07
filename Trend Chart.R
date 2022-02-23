@@ -29,3 +29,4 @@ prison_pop_trend <- (chart1 + chart2 + chart3 + chart4 + chart5 + chart6 + chart
                                                                                               subtitle = "Collected from 1988 to 2016", caption = "https://github.com/vera-institute/incarceration-trends#documentation")
                                                                                                      
 # Map showing prison incarcerations in the U.S. by state from 
+

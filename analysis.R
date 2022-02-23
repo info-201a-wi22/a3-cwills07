@@ -23,3 +23,5 @@ chart4 <-  ggplot(data = incarceration_trends_prison_pop, aes(x = year, y = lati
 
 chart5 <- ggplot(data = incarceration_trends_prison_pop, aes(x = year, y = total_prison_pop)) + geom_point() + geom_smooth(method = lm, col = "orange") + 
   ggtitle("Total Prison Population from 1970 to 2016") + labs(x = "year", y = "Total Prison Population")
+
+
