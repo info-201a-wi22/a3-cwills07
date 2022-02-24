@@ -27,7 +27,7 @@ source("Trend_Chart.R")
 prison_pop_trend
 ```
 
-`r prision_pop_trend`
+
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
 

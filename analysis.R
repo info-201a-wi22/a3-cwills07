@@ -1,27 +1,33 @@
-incarceration_trends_AL <- incarceration_trends %>%
-  select(black_jail_pop, total_jail_pop, state, year, white_jail_pop) %>%
-  filter(state == "AL", black_jail_pop > 0) %>%
-  group_by(year)
+incaceration_file <- "http://raw.githubusercontent.com/vera-institute/incarceration-trends/master/incarceration_trends.csv"
+incarceration_trends <- read.csv(url(incaceration_file), stringsAsFactors = FALSE)
 
-incarceration_trends_AL$black_jail_pop <- as.numeric(incarceration_trends_AL$black_jail_pop)
-incarceration_trends_AL$white_jail_pop <- as.numeric(incarceration_trends_AL$white_jail_pop)
 
-ggplot(incarceration_trends_AL, aes(x = year, y = black_jail_pop)) + geom_point() + geom_smooth(method = lm, col = "cyan") + 
-  ggtitle("Black Incarceration Rate in Alabama from 1985 to 2018") + labs(x = "year", y = "Black jail population")
+library(stringr)
+library(dplyr)
+library(ggplot2)
+library(patchwork)
+library(reshape)
 
-ggplot(incarceration_trends_AL, aes(x = year, y = white_jail_pop)) + geom_point() + geom_smooth(method = lm, col = "green") + 
-  ggtitle("White Incarceration Rate in Alabama from 1985 to 2018") + labs(x = "year", y = "White jail population")
+# Trend chart comparing the total prison population in the U.S. from 1988 to 2016 by race
 
-chart2 <- ggplot(data = incarceration_trends_prison_pop, aes(x = year, y = white_prison_pop)) + geom_point() + geom_smooth(method = lm, col = "red") + 
-  ggtitle("White Prison Population from 1970 to 2016") + labs(x = "year", y = "White Prison Population")    
+df1 <- incarceration_trends %>%
+  select(year, aapi_prison_pop, black_prison_pop, native_prison_pop, white_prison_pop, latinx_prison_pop, total_prison_pop, other_race_prison_pop) %>%
+  filter(aapi_prison_pop > 0, black_prison_pop > 0, native_prison_pop > 0, white_prison_pop > 0, latinx_prison_pop > 0, total_prison_pop > 0, other_race_prison_pop > 0) %>%
+  group_by(year) %>%
+  summarise(year = unique(year), aapi_prison_pop= sum(aapi_prison_pop), black_prison_pop = sum(black_prison_pop), native_prison_pop = sum(native_prison_pop),
+            white_prison_pop = sum(white_prison_pop), latinx_prison_pop = sum(latinx_prison_pop), other_race_prison_pop = sum(other_race_prison_pop), total_prison_pop = sum(total_prison_pop))
 
-chart3 <- ggplot(data = incarceration_trends_prison_pop, aes(x = year, y = native_prison_pop)) + geom_point() + geom_smooth(method = lm, col = "blue") + 
-  ggtitle("Native American Prison Population from 1970 to 2016") + labs(x = "year", y = "Native American Prison Population")
+chart1 <- ggplot(df1, aes(x = year, y = white_prison_pop)) +  geom_line(color = "red") + labs(x = "year", y = "White")
+chart2 <- ggplot(df1, aes(year, aapi_prison_pop)) + geom_line(color = "purple") + labs(x = "year", y = "AAPI")
+chart3 <- ggplot(df1, aes(year, black_prison_pop)) + geom_line(color = "blue") + labs(x = "year", y = "Black")
+chart4 <- ggplot(df1, aes(year, latinx_prison_pop)) + geom_line(color = "pink") + labs(x = "year", y = "Latinx")
+chart5 <- ggplot(df1, aes(year, native_prison_pop)) + geom_line(color = "orange") + labs(x = "year", y = "Native American")
+chart6 <- ggplot(df1, aes(year, other_race_prison_pop)) + geom_line(color = "cyan") + labs(x = "year", y = "Other Races")
+chart7 <- ggplot(df1, aes(year, total_prison_pop)) + geom_line(color = "green") + labs(x = "year", y = "Total Prison")
 
-chart4 <-  ggplot(data = incarceration_trends_prison_pop, aes(x = year, y = latinx_prison_pop)) + geom_point() + geom_smooth(method = lm, col = "purple") + 
-  ggtitle("Latinx Prison Population from 1970 to 2016") + labs(x = "year", y = "Latinx Prison Population")
+prison_pop_trend <- (chart1 + chart2 + chart3 + chart4 + chart5 + chart6 + chart7) + plot_annotation(title = "Racial Disparities in Prison Populations in the U.S.",
+                                                                                                     subtitle = "Collected from 1988 to 2016", caption = "https://github.com/vera-institute/incarceration-trends#documentation")
 
-chart5 <- ggplot(data = incarceration_trends_prison_pop, aes(x = year, y = total_prison_pop)) + geom_point() + geom_smooth(method = lm, col = "orange") + 
-  ggtitle("Total Prison Population from 1970 to 2016") + labs(x = "year", y = "Total Prison Population")
+# Map showing prison incarcerations in the U.S. by state from 
 
 
