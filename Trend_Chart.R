@@ -26,7 +26,12 @@ chart6 <- ggplot(df1, aes(year, other_race_prison_pop)) + geom_line(color = "cya
 chart7 <- ggplot(df1, aes(year, total_prison_pop)) + geom_line(color = "green") + labs(x = "year", y = "Total Prison")
 
 prison_pop_trend <- (chart1 + chart2 + chart3 + chart4 + chart5 + chart6 + chart7) + plot_annotation(title = "Racial Disparities in Prison Populations in the U.S.",
-                                                                                              subtitle = "Collected from 1988 to 2016", caption = "https://github.com/vera-institute/incarceration-trends#documentation")
-                                                                                                     
+                                                                                                       subtitle = "Collected from 1988 to 2016", caption = "https://github.com/vera-institute/incarceration-trends#documentation")
+
 # Map showing prison incarcerations in the U.S. by state from 
 
+
+f1 <- function(data) {
+  # your code for the ggplot
+  return(output)
+}

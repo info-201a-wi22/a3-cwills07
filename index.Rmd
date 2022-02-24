@@ -1,5 +1,5 @@
 ---
-title: "index.Rmd"
+title: "Incarceration Trends in the U.S."
 output: html_document
 ---
 
@@ -22,8 +22,13 @@ summary(cars)
 You can also embed plots, for example:
 
 
-```{r prison_pop_trend 'echo = FALSE'}
+```{r 'echo = FALSE'}
+source("Trend_Chart.R")
 prison_pop_trend
 ```
 
+`r prision_pop_trend`
+
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
