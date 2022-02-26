@@ -17,9 +17,14 @@ This project analyzes and examines the data on incarceration trends in the U.S. 
 
 ### 2.0 Racial Disparities in Prison Admissions by Urbancities in 2009:
 
-```{r 'echo = FALSE'}
-source("comparison_chart.R")
-plot2
+```{r}
+library(dplyr)
+library(tidyverse)
+library(maps)
+library(mapproj)
+library(ggplot2)
+source("../source/comparison_chart.R")
+plot2 
 ```
 
 This variable comparison chart compares the number of white people vs. the number of black people incarcerated in 2009 categorized by urban cities. This chart reveals racial disparities in prison admissions and that individuals living in urban areas are more likely to be incarcerated than individuals in rural areas. The gap between incarceration of individuals living in urban versus rural areas could be because of widespread over policing in cities and urban communities. 
@@ -28,8 +33,13 @@ This variable comparison chart compares the number of white people vs. the numbe
 
 ### 3.0 Racial Disparities in Prison Population in the U.S:
 
-```{r 'echo = FALSE'}
-source("Trend_Chart.R")
+```{r}
+library(dplyr)
+library(tidyverse)
+library(maps)
+library(mapproj)
+library(ggplot2)
+source("../source/trend_chart.R")
 prison_pop_trend
 ```
 
@@ -39,8 +49,13 @@ This trend chart compares prison population rate from 1988 to 2016 by race and r
 
 ### 4.0 Percentage of Minority Populations Incarcerated of Total Prison Population:
 
-```{r 'echo = FALSE'}
-source("map.R")
+```{r}
+library(dplyr)
+library(tidyverse)
+library(maps)
+library(mapproj)
+library(ggplot2)
+source("../source/map.R")
 prison_pop_map
 ```
 
