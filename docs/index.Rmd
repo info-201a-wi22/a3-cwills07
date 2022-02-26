@@ -1,0 +1,57 @@
+---
+title: "A3: Incarceration Trends in the U.S."
+author:  "Caroline Wills"
+Date: "February 25, 2022 "
+Class: "AA INFO 201"
+output: html_document
+---
+
+<br> 
+
+### 1.0 Introduction:
+
+This project analyzes and examines the data on incarceration trends in the U.S. from the Vera Institute showing racial disparities in incarcerations from 1970 to 2018 in county and jurisdiction records. For this project, I choose to analyze the White and Black incarceration rates during the nation’s incarceration peak and in the state where incarceration rate for minority populations were at its highest. According to the data, **2009** was the highest documented incarceration year and **California** has the highest minority prison population in the U.S. I found that there were **48,879** Black people were incarcerated in California in 2009 while only **38,904** White people were incarcerated. This data shows that **9,835** Black individuals faced imprisonment than to White people in California in 2009 revealing the racial and ethnic disparities in incarceration and imprisonment. 
+
+
+<br> 
+
+### 2.0 Racial Disparities in Prison Admissions by Urbancities in 2009:
+
+```{r 'echo = FALSE'}
+source("comparison_chart.R")
+plot2
+```
+
+This variable comparison chart compares the number of white people vs. the number of black people incarcerated in 2009 categorized by urban cities. This chart reveals racial disparities in prison admissions and that individuals living in urban areas are more likely to be incarcerated than individuals in rural areas. The gap between incarceration of individuals living in urban versus rural areas could be because of widespread over policing in cities and urban communities. 
+
+<br>
+
+### 3.0 Racial Disparities in Prison Population in the U.S:
+
+```{r 'echo = FALSE'}
+source("Trend_Chart.R")
+prison_pop_trend
+```
+
+This trend chart compares prison population rate from 1988 to 2016 by race and reveals the scale of racial disparities in imprisonment in the U.S. This data visualization gives a staggering disparity among Black and Latino incarceration given the total incarcerations in the U.S. from 1988 to 2016. 
+
+<br>
+
+### 4.0 Percentage of Minority Populations Incarcerated of Total Prison Population:
+
+```{r 'echo = FALSE'}
+source("map.R")
+prison_pop_map
+```
+
+This map shows the percentage of minority incarcerations to the total incarceration in the U.S. This map geographically illustrates the racial and ethnic disparities of mass incarcerations for minority populations. This map shows how a majority of incarcerated individuals in California are BIPOC.
+
+<br>
+
+### 5.0 Summary:
+
+These charts and maps underpin the widespread racial and ethnic disparities in incarceration rates and in the criminal justice system by revealing the disproportion of incarcerations of minority populations through data wrangling and visualization. This project emphasizes the need for criminal justice reform to end systemic deep-rooted racial and ethnic disparities. 
+
+
+<br>
+
