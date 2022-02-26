@@ -12,7 +12,7 @@ df7 <- incarceration_trends %>%
   mutate(minority_prison_pop = aapi_prison_pop + black_prison_pop + native_prison_pop + latinx_prison_pop + other_race_prison_pop) %>%
   mutate(minority_prison_percent = round((minority_prison_pop/total_prison_pop)*100, 2))
 
-state_highest_2009 <- df7 %>%
+state_highest_2009 <- df8 %>%
   filter(year == "2009") %>%
   filter(minority_prison_pop == max(minority_prison_pop)) %>%
   pull(state)
