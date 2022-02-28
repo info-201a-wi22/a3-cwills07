@@ -1,6 +1,6 @@
 incaceration_file <- "http://raw.githubusercontent.com/vera-institute/incarceration-trends/master/incarceration_trends.csv"
 incarceration_trends <- read.csv(url(incaceration_file), stringsAsFactors = FALSE)
-setwd(Users/carolinewills/Desktop/info201_code/a3-cwills07)
+setwd("/Users/carolinewills/Desktop/info201_code/a3-cwills07")
 
 library(stringr)
 library(dplyr)

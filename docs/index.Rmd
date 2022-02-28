@@ -5,14 +5,15 @@ Date: "February 25, 2022 "
 Class: "AA INFO 201"
 output: html_document
 ---
+```{r setup, cache = F}
+knitr::opts_chunk$set(error = TRUE)
+```
 
 <br> 
 
 ### 1.0 Introduction:
 
 This project analyzes and examines the data on incarceration trends in the U.S. from the Vera Institute showing racial disparities in incarcerations from 1970 to 2018 in county and jurisdiction records. For this project, I choose to analyze the White and Black incarceration rates during the nation’s incarceration peak and in the state where incarceration rate for minority populations were at its highest. According to the data, **2009** was the highest documented incarceration year and **California** has the highest minority prison population in the U.S. I found that there were **48,879** Black people were incarcerated in California in 2009 while only **38,904** White people were incarcerated. This data shows that **9,835** Black individuals faced imprisonment than to White people in California in 2009 revealing the racial and ethnic disparities in incarceration and imprisonment. 
-
-
 <br> 
 
 ### 2.0 Racial Disparities in Prison Admissions by Urbancities in 2009:
@@ -50,12 +51,12 @@ This trend chart compares prison population rate from 1988 to 2016 by race and r
 ### 4.0 Percentage of Minority Populations Incarcerated of Total Prison Population:
 
 ```{r}
+source("../source/map.R")
 library(dplyr)
 library(tidyverse)
 library(maps)
 library(mapproj)
 library(ggplot2)
-source("../source/map.R")
 prison_pop_map
 ```
 
