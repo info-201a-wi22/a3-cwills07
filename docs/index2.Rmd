@@ -17,16 +17,16 @@ This project analyzes and examines the data on incarceration trends in the U.S. 
 
 ### 2.0 Racial Disparities in Prison Admissions by Urbancities in 2009:
 
-```{r, echo= FALSE}
+```{r, echo = FALSE}
 library(dplyr)
 library(tidyverse)
 library(maps)
 library(mapproj)
 library(ggplot2)
 source("/Users/carolinewills/Desktop/info201_code/a3-cwills07/source/comparison_chart.R")
-plot2 
 ```
 
+`r plot2`
 
 This variable comparison chart compares the number of white people vs. the number of black people incarcerated in 2009 categorized by urban cities. This chart reveals racial disparities in prison admissions and that individuals living in urban areas are more likely to be incarcerated than individuals in rural areas. The gap between incarceration of individuals living in urban areas versus rural areas could be because of widespread over policing in cities and urban communities.
 
